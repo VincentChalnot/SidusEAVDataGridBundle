@@ -1,0 +1,2 @@
+parameters:
+    sidus_eav_data_grid.model.datagrid.class: Sidus\EAVDataGridBundle\Model\DataGrid
