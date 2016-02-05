@@ -18,7 +18,6 @@
     "psr-0": { "Sidus\\EAVDataGridBundle": "" }
   },
   "require": {
-    "php": ">=5.4",
     "sidus/eav-model-bundle": "dev-master",
     "sidus/eav-filter-bundle": "dev-master",
     "sidus/datagrid-bundle": "dev-master"
