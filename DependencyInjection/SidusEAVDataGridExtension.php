@@ -6,6 +6,7 @@ use Sidus\DataGridBundle\DependencyInjection\SidusDataGridExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Exception\BadMethodCallException;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\DependencyInjection\Parameter;
 use Symfony\Component\DependencyInjection\Reference;
@@ -43,6 +44,7 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
      * @param ContainerBuilder $container
      * @throws BadMethodCallException
      * @throws UnexpectedValueException
+     * @throws InvalidArgumentException
      */
     protected function addDataGridServiceDefinition($code, array $dataGridConfiguration, ContainerBuilder $container)
     {
@@ -51,6 +53,7 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
         $definition = new Definition(new Parameter('sidus_eav_data_grid.model.datagrid.class'), [
             $code,
             $dataGridConfiguration,
+            new Reference('translator'),
         ]);
         $definition->addTag('sidus.datagrid');
         $container->setDefinition('sidus_eav_data_grid.datagrid.' . $code, $definition);
