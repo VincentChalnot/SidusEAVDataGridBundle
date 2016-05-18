@@ -3,7 +3,7 @@
 namespace Sidus\EAVDataGridBundle\Model;
 
 use Sidus\DataGridBundle\Model\DataGrid as BaseDataGrid;
-use Sidus\EAVFilterBundle\Configuration\FilterConfigurationHandler;
+use Sidus\EAVFilterBundle\Configuration\EAVFilterConfigurationHandler;
 use Sidus\EAVModelBundle\Model\FamilyInterface;
 use Sidus\EAVModelBundle\Translator\TranslatableTrait;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -44,9 +44,10 @@ class DataGrid extends BaseDataGrid
     {
         $this->family = $family;
         $filterConfig = $this->getFilterConfig();
-        if ($filterConfig instanceof FilterConfigurationHandler) {
+        if ($filterConfig instanceof EAVFilterConfigurationHandler) {
             $filterConfig->setFamily($family);
         }
+
         return $this;
     }
 
