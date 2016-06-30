@@ -17,8 +17,9 @@ class DataGrid extends BaseDataGrid
 
     /**
      * DataGrid constructor.
-     * @param string $code
-     * @param array $configuration
+     *
+     * @param string              $code
+     * @param array               $configuration
      * @param TranslatorInterface $translator
      * @throws \Exception
      */
@@ -53,7 +54,7 @@ class DataGrid extends BaseDataGrid
 
     /**
      * @param string $key
-     * @param array $columnConfiguration
+     * @param array  $columnConfiguration
      * @throws \Exception
      */
     protected function createColumn($key, array $columnConfiguration)

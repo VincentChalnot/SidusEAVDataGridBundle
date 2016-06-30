@@ -1,25 +1,30 @@
 {
-  "name": "sidus/eav-datagrid-bundle",
-  "description": "Extension for sidus/eav-model-bundle, sidus/datagrid-bundle and sidus/eav-filter-bundle to allow datagrid management with EAV model",
-  "keywords": [ "eav", "datagrid" ],
-  "homepage": "https://github.com/VincentChalnot/SidusEAVDataGridBundle",
-  "type": "library",
-  "license": "GPL-2.0",
-  "authors": [
-    {
-      "name": "Vincent Chalnot",
-      "email": "vincent@sidus.fr",
-      "homepage": "http://chalnot.fr",
-      "role": "Developer"
+    "name": "sidus/eav-datagrid-bundle",
+    "description": "Extension for sidus/eav-model-bundle, sidus/datagrid-bundle and sidus/eav-filter-bundle to allow datagrid management with EAV model",
+    "keywords": [
+        "eav",
+        "datagrid"
+    ],
+    "homepage": "https://github.com/VincentChalnot/SidusEAVDataGridBundle",
+    "type": "library",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Vincent Chalnot",
+            "email": "vincent@sidus.fr",
+            "homepage": "http://chalnot.fr",
+            "role": "Developer"
+        }
+    ],
+    "target-dir": "Sidus/EAVDataGridBundle",
+    "autoload": {
+        "psr-0": {
+            "Sidus\\EAVDataGridBundle": ""
+        }
+    },
+    "require": {
+        "sidus/eav-model-bundle": "dev-master",
+        "sidus/eav-filter-bundle": "dev-master",
+        "sidus/datagrid-bundle": "dev-master"
     }
-  ],
-  "target-dir": "Sidus/EAVDataGridBundle",
-  "autoload": {
-    "psr-0": { "Sidus\\EAVDataGridBundle": "" }
-  },
-  "require": {
-    "sidus/eav-model-bundle": "dev-master",
-    "sidus/eav-filter-bundle": "dev-master",
-    "sidus/datagrid-bundle": "dev-master"
-  }
 }

@@ -3,6 +3,7 @@
 namespace Sidus\EAVDataGridBundle\DependencyInjection;
 
 use Sidus\DataGridBundle\DependencyInjection\SidusDataGridExtension;
+use Sidus\EAVFilterBundle\DependencyInjection\Configuration as FilterConfiguration;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Exception\BadMethodCallException;
@@ -11,7 +12,6 @@ use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\DependencyInjection\Parameter;
 use Symfony\Component\DependencyInjection\Reference;
 use UnexpectedValueException;
-use Sidus\EAVFilterBundle\DependencyInjection\Configuration as FilterConfiguration;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -39,8 +39,8 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
     /**
      * Add a new Filter service based on the configuration passed inside the datagrid
      *
-     * @param string $code
-     * @param array $dataGridConfiguration
+     * @param string           $code
+     * @param array            $dataGridConfiguration
      * @param ContainerBuilder $container
      * @throws BadMethodCallException
      * @throws UnexpectedValueException
@@ -56,14 +56,14 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
             new Reference('translator'),
         ]);
         $definition->addTag('sidus.datagrid');
-        $container->setDefinition('sidus_eav_data_grid.datagrid.' . $code, $definition);
+        $container->setDefinition('sidus_eav_data_grid.datagrid.'.$code, $definition);
     }
 
     /**
      * Handle direct configuration of filters, uses the same logic than the FilterBundle to generate a service
      *
-     * @param $code
-     * @param array $dataGridConfiguration
+     * @param                  $code
+     * @param array            $dataGridConfiguration
      * @param ContainerBuilder $container
      * @return Reference
      * @throws BadMethodCallException
@@ -81,8 +81,9 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
             new Reference('sidus_eav_model.family_configuration.handler'),
         ]);
 
-        $serviceId = 'sidus_eav_filter.datagrid.configuration.' . $code;
+        $serviceId = 'sidus_eav_filter.datagrid.configuration.'.$code;
         $container->setDefinition($serviceId, $definition);
+
         return new Reference($serviceId);
     }
 }

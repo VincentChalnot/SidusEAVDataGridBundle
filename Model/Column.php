@@ -35,6 +35,7 @@ class Column extends BaseColumn
         $parameters = [
             'fallback' => $fallBack,
         ];
+
         return $this->tryTranslate($tIds, $parameters, $fallBack);
     }
 }
