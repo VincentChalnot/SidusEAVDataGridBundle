@@ -23,8 +23,8 @@
         }
     },
     "require": {
-        "sidus/eav-model-bundle": "dev-master",
-        "sidus/eav-filter-bundle": "dev-master",
-        "sidus/datagrid-bundle": "dev-master"
+        "sidus/eav-model-bundle": "dev-v1.2.x-dev",
+        "sidus/eav-filter-bundle": "dev-v1.2.x-dev",
+        "sidus/datagrid-bundle": "dev-v1.2.x-dev"
     }
 }
