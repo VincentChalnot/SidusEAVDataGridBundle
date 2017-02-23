@@ -42,6 +42,7 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
      * @param string           $code
      * @param array            $dataGridConfiguration
      * @param ContainerBuilder $container
+     *
      * @throws BadMethodCallException
      * @throws UnexpectedValueException
      * @throws InvalidArgumentException
@@ -50,11 +51,13 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
     {
         $dataGridConfiguration = $this->finalizeConfiguration($code, $dataGridConfiguration, $container);
 
-        $definition = new Definition(new Parameter('sidus_eav_data_grid.model.datagrid.class'), [
+        $definition = new Definition(
+            new Parameter('sidus_eav_data_grid.model.datagrid.class'), [
             $code,
             $dataGridConfiguration,
             new Reference('translator'),
-        ]);
+        ]
+        );
         $definition->addTag('sidus.datagrid');
         $container->setDefinition('sidus_eav_data_grid.datagrid.'.$code, $definition);
     }
@@ -65,6 +68,7 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
      * @param                  $code
      * @param array            $dataGridConfiguration
      * @param ContainerBuilder $container
+     *
      * @return Reference
      * @throws BadMethodCallException
      */
@@ -73,13 +77,15 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
         $dataGridConfiguration['filter_config']['family'] = $dataGridConfiguration['family'];
         $filterConfig = $this->finalizeFilterConfiguration($code, $dataGridConfiguration['filter_config']);
 
-        $definition = new Definition(new Parameter('sidus_eav_filter.configuration.class'), [
+        $definition = new Definition(
+            new Parameter('sidus_eav_filter.configuration.class'), [
             $code,
             new Reference('doctrine'),
             new Reference('sidus_filter.filter.factory'),
             $filterConfig,
             new Reference('sidus_eav_model.family_configuration.handler'),
-        ]);
+        ]
+        );
 
         $serviceId = 'sidus_eav_filter.datagrid.configuration.'.$code;
         $container->setDefinition($serviceId, $definition);
