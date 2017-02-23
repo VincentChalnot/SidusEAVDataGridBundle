@@ -16,10 +16,9 @@
             "role": "Developer"
         }
     ],
-    "target-dir": "Sidus/EAVDataGridBundle",
     "autoload": {
-        "psr-0": {
-            "Sidus\\EAVDataGridBundle": ""
+        "psr-4": {
+            "Sidus\\EAVDataGridBundle\\": ""
         }
     },
     "require": {
