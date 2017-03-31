@@ -52,13 +52,15 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
         $dataGridConfiguration = $this->finalizeConfiguration($code, $dataGridConfiguration, $container);
 
         $definition = new Definition(
-            new Parameter('sidus_eav_data_grid.model.datagrid.class'), [
-            $code,
-            $dataGridConfiguration,
-            new Reference('translator'),
-        ]
+            new Parameter('sidus_eav_data_grid.model.datagrid.class'),
+            [
+                $code,
+                $dataGridConfiguration,
+                new Reference('translator'),
+            ]
         );
         $definition->addTag('sidus.datagrid');
+        $definition->setPublic(false);
         $container->setDefinition('sidus_eav_data_grid.datagrid.'.$code, $definition);
     }
 
@@ -78,14 +80,16 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
         $filterConfig = $this->finalizeFilterConfiguration($code, $dataGridConfiguration['filter_config']);
 
         $definition = new Definition(
-            new Parameter('sidus_eav_filter.configuration.class'), [
-            $code,
-            new Reference('doctrine'),
-            new Reference('sidus_filter.filter.factory'),
-            $filterConfig,
-            new Reference('sidus_eav_model.family_configuration.handler'),
-        ]
+            new Parameter('sidus_eav_filter.configuration.class'),
+            [
+                $code,
+                new Reference('doctrine'),
+                new Reference('sidus_filter.filter.factory'),
+                $filterConfig,
+                new Reference('sidus_eav_model.family_configuration.handler'),
+            ]
         );
+        $definition->setPublic(false);
 
         $serviceId = 'sidus_eav_filter.datagrid.configuration.'.$code;
         $container->setDefinition($serviceId, $definition);
