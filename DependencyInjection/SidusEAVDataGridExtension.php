@@ -86,7 +86,7 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
                 new Reference('doctrine'),
                 new Reference('sidus_filter.filter.factory'),
                 $filterConfig,
-                new Reference('sidus_eav_model.family_configuration.handler'),
+                new Reference('sidus_eav_model.family.registry'),
             ]
         );
         $definition->setPublic(false);
