@@ -8,6 +8,9 @@ use Sidus\EAVModelBundle\Model\FamilyInterface;
 use Sidus\EAVModelBundle\Translator\TranslatableTrait;
 use Symfony\Component\Translation\TranslatorInterface;
 
+/**
+ * Extended datagrid configuration for EAV entities
+ */
 class DataGrid extends BaseDataGrid
 {
     use TranslatableTrait;

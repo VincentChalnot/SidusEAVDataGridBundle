@@ -14,6 +14,8 @@ class Column extends BaseColumn
 
     /**
      * @return string
+     *
+     * @throws \Sidus\EAVModelBundle\Exception\MissingAttributeException
      */
     public function getLabel()
     {
