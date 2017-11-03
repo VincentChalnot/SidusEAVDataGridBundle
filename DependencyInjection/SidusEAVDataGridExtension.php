@@ -81,11 +81,11 @@ class SidusEAVDataGridExtension extends SidusDataGridExtension
         $definition = new Definition(
             new Parameter('sidus_eav_filter.configuration.class'),
             [
-                $code,
-                new Reference('doctrine'),
                 new Reference('sidus_filter.filter.factory'),
+                $code,
                 $filterConfig,
                 new Reference('sidus_eav_model.family.registry'),
+                new Reference('doctrine'),
             ]
         );
         $definition->setPublic(false);
